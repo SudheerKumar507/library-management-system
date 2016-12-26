@@ -1,0 +1,98 @@
+<div ng-include="'components/navbar/navbar.html'"></div>
+
+<header class="hero-unit" id="banner">
+  <div class="container">
+    <h1>Welcome to Librarian Portal</h1>
+    <br><br><br><br>
+    <div class="col-md-6" align="left">
+    	<span style="font-size: 18px">Books Inventory:</span>
+    	<form class="form-group">
+    	<table>
+    	<tr ng-repeat="oldbook in oldbooks">
+    		<td>
+    		<div style="border-style: solid; padding: 5px 5px 5px 15px; margin:5px 5px 5px 15px;border-radius: 15px; width: 500px">
+	    		<table style="padding: 10px">
+		    		<tr>
+			    		<td align="right">
+				    		Book Title: 
+				    	</td>
+				    	<td>
+				    		<input type="text" name="title" class="form-control" ng-model="oldbook.title" value="{{oldbook.title}}" required/>
+				    	</td>
+			    	</tr>
+			    	<tr>
+				    	<td align="right">
+				    		<br>Book Author:
+				    	</td>
+				    	<td>
+				    		 <input type="text" name="author" class="form-control" ng-model="oldbook.author" value="{{oldbook.author}}" required/>
+				    	</td>
+			    	</tr>
+			    	<tr>
+				    	<td align="right">
+				    		<br>Book Publisher:
+				    	</td>
+				    	<td>
+				    		<input type="text" name="publisher" class="form-control" ng-model="oldbook.publisher" value="{{oldbook.publisher}}" required/>
+				    	</td>
+				    </tr>
+			    	<tr>
+				    	<td align="right">
+				    		<br>No of Copies: 
+				    	</td>
+				    	<td align="right">
+				    		<input type="number" name="count" class="form-control" ng-model="oldbook.count" value="{{oldbook.count}}" required/>			    		
+				    	</td>
+				    </tr>
+					<tr>
+						<td align="right">	
+				    		<br>Date Added: 	
+			    		</td>
+			    		<td>
+			    			{{oldbook.date}}
+		                </td>
+	                </tr>
+            	</table>
+            	</form>
+    		&nbsp;&nbsp;
+    		<div>
+    			<button class="btn btn-danger" ng-click="remallcop(oldbook._id)">
+    				-All Copies
+    			</button>&nbsp;&nbsp;
+    			<button class="btn btn-danger" ng-click="remonecop(oldbook._id)">
+    				-1 Copy
+    			</button> &nbsp;&nbsp;
+    			<button class="btn btn-success" ng-click="update(oldbook,oldbook._id)">
+    				Update
+    			</button> &nbsp;&nbsp;
+    		</div>
+    		<br>
+    		</div>
+    		</td>
+    	</tr>
+    	</table>
+    </div>
+
+    <div class="col-md-6" align="left">
+    	<span style="font-size:18px">Add Book:</span><br><br><br>
+    	<form class="form-group" ng-submit="addbook(form)">
+    		<label>Title</label>
+    		<input type="text" name="title" class="form-control" ng-model="book.title" 
+                 required/><br>
+    		<label>Publisher</label>
+    		<input type="text" name="publisher" class="form-control" ng-model="book.publisher"
+                 required/><br>
+    		<label>Author</label>
+    		<input type="text" name="title" class="form-control" ng-model="book.author"
+                 required/><br>
+            <label>No of Copies</label>
+    		<input type="number" name="count" class="form-control" ng-model="book.count"
+                 required/><br>
+            <button class="btn btn-success">
+            	Add
+          	</button>
+    	</form>
+    </div>
+    <br><br>
+  </div>
+</header>
